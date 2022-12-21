@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OpenBagAction : MonoBehaviour
+public class CloseBagAction : MonoBehaviour
 {
     [SerializeField]
     private GameObject _bagPanel;
@@ -10,12 +10,12 @@ public class OpenBagAction : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("OpenBagAction Start");  // TODO: Remove this line
+        Debug.Log("CloseBagAction Start");  // TODO: Remove this line
     }
-
+    
     public void OnClick()
     {
-        Debug.Log("OpenBagAction OnClick");  // TODO: Remove this line
-        _bagPanel.SetActive(true);
+        Debug.Log("CloseBagAction OnClick");  // TODO: Remove this line
+        _bagPanel.SetActive(false);
     }
 }
