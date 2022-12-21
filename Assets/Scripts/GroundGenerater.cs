@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GroundGenerater : MonoBehaviour
 {
-    // 使い方: ヒエラルキに空オブジェクトを設置してこのスクリプトをアタッチして再生してください。
-    // terrainが10*10で生成されます。
+    // 使い方: ヒエラルキにgrounds(適当な空オブジェクト)を置き、transformをresetしてからこのスクリプトをアタッチして実行します。(クラス変数grounds[]に配置したいterrainを予め置いてください)terrainが10*10で生成されます。
+    // 実行するのは最初の一回だけでいいです。その実行からオブジェクトたちをコピーして持ち帰ってください。
     public GameObject[] grounds;
     // Start is called before the first frame update
     void Start()
