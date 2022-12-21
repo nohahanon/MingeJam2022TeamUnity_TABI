@@ -8,6 +8,6 @@ public class EnterSnowWorldButtonAction : MonoBehaviour
     public void OnClick()
     {
         Debug.Log("EnterSnowWorldButtonAction");  // TODO: Remove this line
-        SceneManeger.LoadScene("grassWorld");  // FIXME
+        SceneManeger.LoadScene("snowWorld");
     }
 }
