@@ -16,7 +16,6 @@ public class EnterWorldSelectionKeyDownAction : MonoBehaviour
     {
         if (Input.anyKeyDown)
         {
-            Debug.Log("EnterWorldSelectionButtonAction");  // TODO: Remove this line
             SceneManeger.LoadScene("WorldSelection");  // FIXME
         }
     }
