@@ -56,6 +56,7 @@ public class movevontrol : MonoBehaviour
         //NavMeshAgentを止める
        
         agent.isStopped = true;
+        anim.SetBool ( "walking", false );
         //待ち時間を数える
         time += Time.deltaTime;
 
@@ -77,7 +78,6 @@ public class movevontrol : MonoBehaviour
         //経路探索の準備ができておらず
         //目標地点までの距離が0.5m未満ならNavMeshAgentを止める
         if (!agent.pathPending && agent.remainingDistance < 0.5f){
-            anim.SetBool ( "walking", false );
             StopHere();
             anim.SetBool ( "walking", true );
         }
