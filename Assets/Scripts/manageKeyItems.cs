@@ -24,7 +24,7 @@ public class manageKeyItems : MonoBehaviour
     {
         if (other.gameObject.tag == "keyItem")
         {
-            if ((cnt + 1) == numOfItem) _text.text = "クリア";
+            if ((cnt + 1) == numOfItem) _text.text = "クリア!";
             else
                 _text.text = (++cnt) + "個目みつけた！あと" + (numOfItem - cnt) + "個！";
             other.gameObject.SetActive(false);
