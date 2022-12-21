@@ -6,7 +6,7 @@ using DG.Tweening;
 public class makeMove : MonoBehaviour
 {
     public GameObject[] ankers;
-    private float timePerLoop = 200f;
+    private float timePerLoop = 600f;
     // Start is called before the first frame update
     void Start()
     {
