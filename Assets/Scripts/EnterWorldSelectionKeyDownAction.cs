@@ -5,10 +5,10 @@ using SceneManeger = UnityEngine.SceneManagement.SceneManager;
 
 public class EnterWorldSelectionKeyDownAction : MonoBehaviour
 {
+    public GameObject titleBoard, selectBoard;
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
@@ -16,7 +16,9 @@ public class EnterWorldSelectionKeyDownAction : MonoBehaviour
     {
         if (Input.anyKeyDown)
         {
-            SceneManeger.LoadScene("WorldSelection");  // FIXME
+            // SceneManeger.LoadScene("WorldSelection");  // FIXME
+            selectBoard.SetActive(true);
+            titleBoard.SetActive(false);
         }
     }
 }

@@ -7,6 +7,7 @@ public class EnterSnowWorldButtonAction : MonoBehaviour
 {
     public void OnClick()
     {
-        SceneManeger.LoadScene("snowWorld");  // FIXME
+        // SceneManeger.LoadScene("snowWorld");  // FIXME
+        FadeManager.Instance.LoadScene("snowWorld", 1.0f);
     }
 }
