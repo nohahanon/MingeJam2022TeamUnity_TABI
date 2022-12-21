@@ -1,6 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/buumeran.meta
 guid: b54af25e2e7a4f74395cf0d4efaaf756
 folderAsset: yes
+========
+guid: 03410e88ae52110499b5c13ec7edef62
+>>>>>>>> 0428496df71cdfa331c1efd95c570043b8500f70:Assets/Scenes/desertWorld.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

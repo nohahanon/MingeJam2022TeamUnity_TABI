@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/buumeran/mob.controller.meta
 guid: ed0abf1679f23a9458761b67ca324d12
 NativeFormatImporter:
+========
+guid: 75080f3efa0505a41a5cdec7d0deac71
+DefaultImporter:
+>>>>>>>> 0428496df71cdfa331c1efd95c570043b8500f70:Assets/Scenes/snowWorld.unity.meta
   externalObjects: {}
   mainObjectFileID: 9100000
   userData: 
