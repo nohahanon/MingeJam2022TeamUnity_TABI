@@ -7,7 +7,7 @@ public class skyChanger : MonoBehaviour
 {
     public Light _light;
     private float time = 0f;
-    private float halfDayTime = 50f;
+    private float halfDayTime = 150f;
     Color mor = new Color(230f / 255f, 1f, 1f), eve = new Color(1f, 165f / 255f, 1f); // 朝と夜にそれぞれのライトの色にします
 
     // Start is called before the first frame update

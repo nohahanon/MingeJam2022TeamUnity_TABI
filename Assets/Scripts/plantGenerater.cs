@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class plantGenerater : MonoBehaviour
 {
-    // 注意: 常にこれを動作させると重くなります。何も置かれていないsceneで最初の一回に実行して出来上がったオブジェクトをコピーして持ち帰るためだけのものです。
+    // 使い方: ヒエラルキにplants(適当な空オブジェクト)を置き、transformをresetしてからこのスクリプトをアタッチして実行します。(クラス変数plants[]に配置したいオブジェクトを予め置いてください)するとGroundGenerater.csで配置したterrainに収まるように植物などを配置してくれます。
+    // 実行するのは最初の一回だけでいいです。その実行からオブジェクトたちをコピーして持ち帰ってください。
+    // 注意: このスクリプトでしていることは割と重い処理なので基本activeはfalseにしてください。
     public GameObject[] plants;
     // Start is called before the first frame update
     void Start()
