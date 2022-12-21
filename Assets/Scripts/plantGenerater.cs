@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class plantGenerater : MonoBehaviour
 {
+    // 注意: 常にこれを動作させると重くなります。何も置かれていないsceneで最初の一回に実行して出来上がったオブジェクトをコピーして持ち帰るためだけのものです。
     public GameObject[] plants;
     // Start is called before the first frame update
     void Start()

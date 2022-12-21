@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GroundGenerater : MonoBehaviour
 {
+    // 注意: 常にこれを動作させると重くなります。何も置かれていないsceneで最初の一回に実行して出来上がったオブジェクトをコピーして持ち帰るためだけのものです。
     // 使い方: ヒエラルキに空オブジェクトを設置してこのスクリプトをアタッチして再生してください。
     // terrainが10*10で生成されます。
     public GameObject[] grounds;
