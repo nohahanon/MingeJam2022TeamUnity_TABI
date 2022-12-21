@@ -7,7 +7,6 @@ public class EnterDesertWorldButtonAction : MonoBehaviour
 {
     public void OnClick()
     {
-        Debug.Log("EnterDesertWorldButtonAction");  // TODO: Remove this line
-        SceneManeger.LoadScene("grassWorld");  // FIXME
+        SceneManeger.LoadScene("desertWorld");  // FIXME
     }
 }
