@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class manageKeyItems : MonoBehaviour
 {
+
+    public Text _text;
     public GameObject[] keyItems;
     private int numOfItem, cnt = 0;
     // Start is called before the first frame update
@@ -21,9 +24,9 @@ public class manageKeyItems : MonoBehaviour
     {
         if (other.gameObject.tag == "keyItem")
         {
-            if ((cnt + 1) == numOfItem) Debug.Log("くりあ！");
+            if ((cnt + 1) == numOfItem) _text.text = "クリア!";
             else
-                Debug.Log((++cnt) + "個目みつけた！あと" + (numOfItem - cnt) + "個！");
+                _text.text = (++cnt) + "個目みつけた！あと" + (numOfItem - cnt) + "個！";
             other.gameObject.SetActive(false);
         }
     }
