@@ -7,6 +7,7 @@ public class EnterDesertWorldButtonAction : MonoBehaviour
 {
     public void OnClick()
     {
-        SceneManeger.LoadScene("desertWorld");  // FIXME
+        // SceneManeger.LoadScene("desertWorld");  // FIXME
+        FadeManager.Instance.LoadScene("desertWorld", 1.0f);
     }
 }
