@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using SceneManeger = UnityEngine.SceneManagement.SceneManager;
 
 public class skyChanger : MonoBehaviour
 {
@@ -17,7 +18,9 @@ public class skyChanger : MonoBehaviour
         _light.color = mor;
         _light.intensity = 1f;
         RenderSettings.skybox.SetFloat("_CubemapTransition", 0f);
-        StartCoroutine(changeSky());
+        // StartCoroutine(changeSky());
+        // タイトルは画にメリハリ欲しいので昼と夜の切り替わりを早くします
+        if (SceneManeger.GetActiveScene().name == "title") halfDayTime = 50f;
     }
 
     // Update is called once per frame
