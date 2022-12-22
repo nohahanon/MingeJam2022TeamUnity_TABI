@@ -88,10 +88,14 @@ Material:
     - _CUBEMAPP: 1
     - _CubemapPosition: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     - _CubemapTransition: 0.3369992
 =======
     - _CubemapTransition: 0.17900018
 >>>>>>> 99ae747a44cb3b12a69d4cd072bc54c9b19cbb33
+=======
+    - _CubemapTransition: 1.0009907
+>>>>>>> e843cf1e88bf88c5f8b556417344a347d5df51da
     - _Cubemapp: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
