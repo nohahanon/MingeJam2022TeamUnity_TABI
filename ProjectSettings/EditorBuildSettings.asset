@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/WorldSelection.unity
+    path: Assets/Scenes/candidate/WorldSelection.unity
     guid: 722e20fae36403c449722a0a6da170d9
   - enabled: 1
     path: Assets/Scenes/desertWorld.unity

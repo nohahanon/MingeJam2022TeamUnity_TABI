@@ -34,7 +34,7 @@ public class makeMove : MonoBehaviour
             while (check[idx] == true) idx = (idx + 1) % ankersLength;
             check[idx] = true;
             path[i] = ankers[idx].transform.position;
-            path[i].y += Random.Range(3, 20);
+            path[i].y += Random.Range(6, 20);
         }
         return path;
     }
