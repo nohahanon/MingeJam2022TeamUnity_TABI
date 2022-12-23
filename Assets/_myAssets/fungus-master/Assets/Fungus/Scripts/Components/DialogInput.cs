@@ -1,7 +1,7 @@
 // This code is part of the Fungus library (https://github.com/snozbot/fungus)
 // It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
 
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace Fungus
@@ -71,7 +71,7 @@ namespace Fungus
                 }
             }
         }
-            
+
         protected virtual void Update()
         {
             if (EventSystem.current == null)
@@ -86,41 +86,47 @@ namespace Fungus
 
             if (writer != null)
             {
-                if (Input.GetButtonDown(currentStandaloneInputModule.submitButton) ||
-                    (cancelEnabled && Input.GetButton(currentStandaloneInputModule.cancelButton)))
+                // currentStandaloneInputModuleがnull?
+                // if (Input.GetButtonDown(currentStandaloneInputModule.submitButton) ||
+                //     (cancelEnabled && Input.GetButton(currentStandaloneInputModule.cancelButton)))
+                // {
+                //     SetNextLineFlag();
+                // }
+                if (cancelEnabled && Input.anyKeyDown)
                 {
                     SetNextLineFlag();
                 }
+
             }
 
             switch (clickMode)
             {
-            case ClickMode.Disabled:
-                break;
-            case ClickMode.ClickAnywhere:
-                if (Input.GetMouseButtonDown(0))
-                {
-                    SetClickAnywhereClickedFlag();
-                }
-                break;
-            case ClickMode.ClickOnDialog:
-                if (dialogClickedFlag)
-                {
-                    SetNextLineFlag();
-                    dialogClickedFlag = false;
-                }
-                break;
+                case ClickMode.Disabled:
+                    break;
+                case ClickMode.ClickAnywhere:
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        SetClickAnywhereClickedFlag();
+                    }
+                    break;
+                case ClickMode.ClickOnDialog:
+                    if (dialogClickedFlag)
+                    {
+                        SetNextLineFlag();
+                        dialogClickedFlag = false;
+                    }
+                    break;
             }
 
             if (ignoreClickTimer > 0f)
             {
-                ignoreClickTimer = Mathf.Max (ignoreClickTimer - Time.deltaTime, 0f);
+                ignoreClickTimer = Mathf.Max(ignoreClickTimer - Time.deltaTime, 0f);
             }
 
             if (ignoreMenuClicks)
             {
                 // Ignore input events if a Menu is being displayed
-                if (MenuDialog.ActiveMenuDialog != null && 
+                if (MenuDialog.ActiveMenuDialog != null &&
                     MenuDialog.ActiveMenuDialog.IsActive() &&
                     MenuDialog.ActiveMenuDialog.DisplayedOptionsCount > 0)
                 {
@@ -149,7 +155,7 @@ namespace Fungus
         /// </summary>
         public virtual void SetNextLineFlag()
         {
-            if(writer.IsWaitingForInput || writer.IsWriting)
+            if (writer.IsWaitingForInput || writer.IsWriting)
             {
                 nextLineInputFlag = true;
             }
