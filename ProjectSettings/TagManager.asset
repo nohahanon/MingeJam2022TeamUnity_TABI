@@ -6,6 +6,10 @@ TagManager:
   tags:
   - CinemachineTarget
   - keyItem
+  - communicationPanel
+  - nameInCommunicationPanel
+  - serifsInCommunicationPanel
+  - NPC
   layers:
   - Default
   - TransparentFX
