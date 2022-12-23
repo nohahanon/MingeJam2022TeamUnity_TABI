@@ -7,6 +7,7 @@ public class communicationManager : MonoBehaviour
 {
     private GameObject communicationPanel;
     private Text nameInCommunicationPanel, serifsInCommunicationPanel;
+    public float textSpeed = 0.1f;
     public string npcName;
     public string[] serifs;
     // Start is called before the first frame update
@@ -42,10 +43,16 @@ public class communicationManager : MonoBehaviour
     IEnumerator communication()
     {
         int i, j;
+        int n = 13;
         for (i = 0; i < serifs.Length; i++)
         {
             for (j = 0; j < serifs[i].Length; j++)
             {
+                if (j % n == 0 && j != 0)
+                {
+                    yield return new WaitUntil(() => Input.anyKeyDown);
+                    serifsInCommunicationPanel.text = "";
+                }
                 serifsInCommunicationPanel.text += serifs[i][j];
                 yield return new WaitForSeconds(0.05f);
             }
