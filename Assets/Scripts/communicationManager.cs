@@ -5,18 +5,12 @@ using UnityEngine.UI;
 
 public class communicationManager : MonoBehaviour
 {
-    private GameObject communicationPanel;
-    private Text nameInCommunicationPanel, serifsInCommunicationPanel;
-    public float textSpeed = 0.1f;
     public string npcName;
     public string[] serifs;
     // Start is called before the first frame update
     void Start()
     {
-        communicationPanel = GameObject.FindWithTag("communicationPanel");
-        nameInCommunicationPanel = GameObject.FindWithTag("nameInCommunicationPanel").GetComponent<Text>();
-        serifsInCommunicationPanel = GameObject.FindWithTag("serifsInCommunicationPanel").GetComponent<Text>();
-        communicationPanel.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -27,18 +21,18 @@ public class communicationManager : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag != "Player") return;
-        communicationPanel.SetActive(true);
-        nameInCommunicationPanel.text = npcName;
+        this.transform.root.gameObject.GetComponent<parentCommunicationManager>().communicationPanel.SetActive(true);
+        this.transform.root.gameObject.GetComponent<parentCommunicationManager>().nameInCommunicationPanel.text = npcName;
         StartCoroutine(communication());
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag != "Player") return;
         // 次のためにtextを初期化する
-        nameInCommunicationPanel.text = "";
-        serifsInCommunicationPanel.text = "";
+        this.transform.root.gameObject.GetComponent<parentCommunicationManager>().nameInCommunicationPanel.text = "";
+        this.transform.root.gameObject.GetComponent<parentCommunicationManager>().serifsInCommunicationPanel.text = "";
         // panelを非表示にする
-        communicationPanel.SetActive(false);
+        this.transform.root.gameObject.GetComponent<parentCommunicationManager>().communicationPanel.SetActive(false);
     }
     IEnumerator communication()
     {
@@ -51,14 +45,14 @@ public class communicationManager : MonoBehaviour
                 if (j % n == 0 && j != 0)
                 {
                     yield return new WaitUntil(() => Input.anyKeyDown);
-                    serifsInCommunicationPanel.text = "";
+                    this.transform.root.gameObject.GetComponent<parentCommunicationManager>().serifsInCommunicationPanel.text = "";
                 }
-                serifsInCommunicationPanel.text += serifs[i][j];
-                yield return new WaitForSeconds(0.05f);
+                this.transform.root.gameObject.GetComponent<parentCommunicationManager>().serifsInCommunicationPanel.text += serifs[i][j];
+                yield return new WaitForSeconds(this.transform.root.gameObject.GetComponent<parentCommunicationManager>().textSpeed);
             }
             yield return new WaitUntil(() => Input.anyKeyDown);
-            serifsInCommunicationPanel.text = "";
+            this.transform.root.gameObject.GetComponent<parentCommunicationManager>().serifsInCommunicationPanel.text = "";
         }
-        communicationPanel.SetActive(false);
+        this.transform.root.gameObject.GetComponent<parentCommunicationManager>().communicationPanel.SetActive(false);
     }
 }
