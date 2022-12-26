@@ -5,12 +5,14 @@ using UnityEngine.UI;
 
 public class communicationManager : MonoBehaviour
 {
+    private parentCommunicationManager _parentCommunicationManager;
     public string npcName;
     public string[] serifs;
+    private bool bye = false;
     // Start is called before the first frame update
     void Start()
     {
-
+        _parentCommunicationManager = this.transform.root.gameObject.GetComponent<parentCommunicationManager>();
     }
 
     // Update is called once per frame
@@ -20,26 +22,34 @@ public class communicationManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag != "Player" || this.transform.root.gameObject.GetComponent<parentCommunicationManager>().canTalk == false) return;
-        this.transform.root.gameObject.GetComponent<parentCommunicationManager>().communicationPanel.SetActive(true);
-        this.transform.root.gameObject.GetComponent<parentCommunicationManager>().nameInCommunicationPanel.text = npcName;
+
+        // object(NPC, keyItem)がt"Player"との接触以外　または　既に誰かと話しているときは会話を進めない
+        if (other.gameObject.tag != "Player" || _parentCommunicationManager.canTalk == false) return;
+        // 黒い会話パネルを表示させて
+        _parentCommunicationManager.communicationPanel.SetActive(true);
+        // もしあるなら名前欄に文字列代入
+        _parentCommunicationManager.nameInCommunicationPanel.text = npcName;
+        // ここから誰かの話しかけられる範囲に侵入してもそれはブロックされるようにする
+        _parentCommunicationManager.canTalk = false;
+        // セリフ表示コルーチン開始
         StartCoroutine(communication());
-        this.transform.root.gameObject.GetComponent<parentCommunicationManager>().canTalk = false;
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag != "Player") return;
+
         // 次のためにtextを初期化する
-        this.transform.root.gameObject.GetComponent<parentCommunicationManager>().nameInCommunicationPanel.text = "";
-        this.transform.root.gameObject.GetComponent<parentCommunicationManager>().serifsInCommunicationPanel.text = "";
+        _parentCommunicationManager.nameInCommunicationPanel.text = "";
+        _parentCommunicationManager.serifsInCommunicationPanel.text = "";
         // panelを非表示にする
-        this.transform.root.gameObject.GetComponent<parentCommunicationManager>().communicationPanel.SetActive(false);
-        this.transform.root.gameObject.GetComponent<parentCommunicationManager>().canTalk = true;
+        _parentCommunicationManager.communicationPanel.SetActive(false);
+        // もう話しかけていいよ、とする
+        _parentCommunicationManager.canTalk = true;
     }
     IEnumerator communication()
     {
         int i, j;
-        int n = 13;
+        int n = 15;
         for (i = 0; i < serifs.Length; i++)
         {
             for (j = 0; j < serifs[i].Length; j++)
@@ -47,14 +57,14 @@ public class communicationManager : MonoBehaviour
                 if (j % n == 0 && j != 0)
                 {
                     yield return new WaitUntil(() => Input.anyKeyDown);
-                    this.transform.root.gameObject.GetComponent<parentCommunicationManager>().serifsInCommunicationPanel.text = "";
+                    _parentCommunicationManager.serifsInCommunicationPanel.text = "";
                 }
-                this.transform.root.gameObject.GetComponent<parentCommunicationManager>().serifsInCommunicationPanel.text += serifs[i][j];
-                yield return new WaitForSeconds(this.transform.root.gameObject.GetComponent<parentCommunicationManager>().textSpeed);
+                _parentCommunicationManager.serifsInCommunicationPanel.text += serifs[i][j];
+                yield return new WaitForSeconds(_parentCommunicationManager.textSpeed);
             }
             yield return new WaitUntil(() => Input.anyKeyDown);
-            this.transform.root.gameObject.GetComponent<parentCommunicationManager>().serifsInCommunicationPanel.text = "";
+            _parentCommunicationManager.serifsInCommunicationPanel.text = "";
         }
-        this.transform.root.gameObject.GetComponent<parentCommunicationManager>().communicationPanel.SetActive(false);
+        _parentCommunicationManager.communicationPanel.SetActive(false);
     }
 }
