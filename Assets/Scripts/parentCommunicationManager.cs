@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class parentCommunicationManager : MonoBehaviour
 {
+    public bool canTalk = true;
 
     public GameObject communicationPanel;
     public Text nameInCommunicationPanel, serifsInCommunicationPanel;

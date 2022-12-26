@@ -20,10 +20,11 @@ public class communicationManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag != "Player") return;
+        if (other.gameObject.tag != "Player" || this.transform.root.gameObject.GetComponent<parentCommunicationManager>().canTalk == false) return;
         this.transform.root.gameObject.GetComponent<parentCommunicationManager>().communicationPanel.SetActive(true);
         this.transform.root.gameObject.GetComponent<parentCommunicationManager>().nameInCommunicationPanel.text = npcName;
         StartCoroutine(communication());
+        this.transform.root.gameObject.GetComponent<parentCommunicationManager>().canTalk = false;
     }
     private void OnTriggerExit(Collider other)
     {
@@ -33,6 +34,7 @@ public class communicationManager : MonoBehaviour
         this.transform.root.gameObject.GetComponent<parentCommunicationManager>().serifsInCommunicationPanel.text = "";
         // panelを非表示にする
         this.transform.root.gameObject.GetComponent<parentCommunicationManager>().communicationPanel.SetActive(false);
+        this.transform.root.gameObject.GetComponent<parentCommunicationManager>().canTalk = true;
     }
     IEnumerator communication()
     {
