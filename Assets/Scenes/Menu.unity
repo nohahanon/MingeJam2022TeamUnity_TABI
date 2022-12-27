@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -201,29 +201,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &351420123 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4708746595038548762, guid: 008a378464eece348ad4202622bbdae6, type: 3}
-  m_PrefabInstance: {fileID: 4708746595236605377}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &632777537 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 426864988216058521, guid: 008a378464eece348ad4202622bbdae6, type: 3}
-  m_PrefabInstance: {fileID: 4708746595236605377}
-  m_PrefabAsset: {fileID: 0}
---- !u!225 &632777539
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 632777537}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
---- !u!1001 &4708746595236605377
+--- !u!1001 &1899031183
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -278,9 +256,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4708746596352984608, guid: 008a378464eece348ad4202622bbdae6, type: 3}
-      propertyPath: _bagPanel
-      value: 
-      objectReference: {fileID: 351420123}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 008a378464eece348ad4202622bbdae6, type: 3}
