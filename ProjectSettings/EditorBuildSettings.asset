@@ -4,5 +4,20 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/candidate/WorldSelection.unity
+    guid: 722e20fae36403c449722a0a6da170d9
+  - enabled: 1
+    path: Assets/Scenes/title.unity
+    guid: 2b74c7ddc4c3b3b45afedd2100c2c462
+  - enabled: 1
+    path: Assets/Scenes/desertWorld.unity
+    guid: 03410e88ae52110499b5c13ec7edef62
+  - enabled: 1
+    path: Assets/Scenes/grassWorld.unity
+    guid: 214f8f8525b7ff44883e4df68c88c19c
+  - enabled: 1
+    path: Assets/Scenes/snowWorld.unity
+    guid: 75080f3efa0505a41a5cdec7d0deac71
   m_configObjects: {}
